@@ -2,10 +2,7 @@ __pycache__/
 *.pyc
 *.pyo
 *.pt
-*.mp4
 *.avi
 *.egg-info/
 .env
-evidence/frames/
-evidence/challans/
-evidence/reports/
+
