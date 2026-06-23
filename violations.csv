@@ -1,1 +1,0 @@
-ViolationID,Timestamp,FrameID,TrackID,VehicleClass,ViolationType,Confidence,BBoxX1,BBoxY1,BBoxX2,BBoxY2,PlateText,PlateConfidence,EvidenceFramePath
