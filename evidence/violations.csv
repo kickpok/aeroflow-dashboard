@@ -1,1 +1,21 @@
 ViolationID,Timestamp,FrameID,TrackID,VehicleClass,ViolationType,Confidence,BBoxX1,BBoxY1,BBoxX2,BBoxY2,PlateText,PlateConfidence,EvidenceFramePath
+VIO-001,2024-06-10 08:12:34,102,3,motorcycle,Helmet Non-Compliance,0.91,120,200,310,420,DL 3C AB 1234,0.88,evidence/frames/VIO_frame000102_081234.jpg
+VIO-002,2024-06-10 08:15:22,188,7,motorcycle,Triple Riding,0.87,340,180,560,400,HR 26 BJ 2317,0.76,evidence/frames/VIO_frame000188_081522.jpg
+VIO-003,2024-06-10 08:23:45,312,12,car,Red-Light Violation,0.93,200,150,480,370,DL 5Y CD 5678,0.91,evidence/frames/VIO_frame000312_082345.jpg
+VIO-004,2024-06-10 08:31:10,401,15,motorcycle,Stop-Line Violation,0.82,150,220,330,430,UP 80 EF 9012,0.72,evidence/frames/VIO_frame000401_083110.jpg
+VIO-005,2024-06-10 08:45:55,512,19,truck,Wrong-Side Driving,0.89,400,100,700,380,DL 1 PA 0045,0.85,evidence/frames/VIO_frame000512_084555.jpg
+VIO-006,2024-06-10 09:02:18,634,24,car,Illegal Parking,0.78,250,200,500,420,MH 12 AB 3456,0.69,evidence/frames/VIO_frame000634_090218.jpg
+VIO-007,2024-06-10 09:14:33,720,28,motorcycle,Helmet Non-Compliance,0.95,180,190,360,410,DL 8S GH 7890,0.93,evidence/frames/VIO_frame000720_091433.jpg
+VIO-008,2024-06-10 09:28:47,845,33,motorcycle,Triple Riding,0.84,300,160,520,390,HR 51 IJ 1122,0.77,evidence/frames/VIO_frame000845_092847.jpg
+VIO-009,2024-06-10 09:45:12,932,37,car,Red-Light Violation,0.96,220,140,490,360,DL 2C KL 3344,0.94,evidence/frames/VIO_frame000932_094512.jpg
+VIO-010,2024-06-10 10:05:29,1024,41,motorcycle,Stop-Line Violation,0.81,160,210,340,440,UP 32 MN 5566,0.71,evidence/frames/VIO_frame001024_100529.jpg
+VIO-011,2024-06-10 10:18:44,1112,45,bus,Wrong-Side Driving,0.88,380,90,680,370,DL 1 PB 0078,0.83,evidence/frames/VIO_frame001112_101844.jpg
+VIO-012,2024-06-10 10:32:15,1234,49,car,Illegal Parking,0.76,270,210,520,430,MH 14 OP 7788,0.67,evidence/frames/VIO_frame001234_103215.jpg
+VIO-013,2024-06-10 10:48:52,1345,53,motorcycle,Helmet Non-Compliance,0.92,140,185,320,405,DL 9T QR 9900,0.89,evidence/frames/VIO_frame001345_104852.jpg
+VIO-014,2024-06-10 11:05:37,1456,57,motorcycle,Triple Riding,0.86,320,170,540,395,HR 29 ST 1234,0.79,evidence/frames/VIO_frame001456_110537.jpg
+VIO-015,2024-06-10 11:22:19,1567,61,car,Red-Light Violation,0.94,210,145,480,365,DL 4D UV 5678,0.92,evidence/frames/VIO_frame001567_112219.jpg
+VIO-016,2024-06-10 11:38:44,1678,65,motorcycle,Stop-Line Violation,0.83,170,215,350,445,UP 65 WX 9012,0.74,evidence/frames/VIO_frame001678_113844.jpg
+VIO-017,2024-06-10 11:55,1789,69,truck,Wrong-Side Driving,0.91,410,95,710,375,DL 1 PC 0099,0.87,evidence/frames/VIO_frame001789_115500.jpg
+VIO-018,2024-06-10 12:10:28,1890,73,car,Illegal Parking,0.79,260,205,510,425,MH 15 YZ 3456,0.70,evidence/frames/VIO_frame001890_121028.jpg
+VIO-019,2024-06-10 12:28:15,1998,77,motorcycle,Helmet Non-Compliance,0.93,155,192,335,412,DL 7U AB 7890,0.90,evidence/frames/VIO_frame001998_122815.jpg
+VIO-020,2024-06-10 12:45,2100,81,motorcycle,Triple Riding,0.85,310,165,530,392,HR 10 CD 1122,0.78,evidence/frames/VIO_frame002100_124500.jpg
