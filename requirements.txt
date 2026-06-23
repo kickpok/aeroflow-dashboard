@@ -1,0 +1,9 @@
+# AeroFlow Dashboard — lightweight dependencies only
+# No opencv, no ultralytics, no easyocr needed for dashboard
+
+streamlit>=1.32.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+requests>=2.31.0
+numpy>=1.24.0
