@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d60df2874cdb38104d7e6baa7befa3d2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+        <div style="position:fixed;top:10px;left:50%;transform:translateX(-50%);
+             z-index:1000;background:rgba(0,0,0,0.75);padding:10px 20px;
+             border-radius:8px;color:white;font-family:Arial;font-size:14px;
+             border:1px solid #1A56DB;">
+            🚦 AeroFlow AI — Bengaluru Violation Hotspot Map
+        </div>
+        
+    
+        <div style="position:fixed;bottom:30px;right:10px;z-index:1000;
+             background:rgba(0,0,0,0.75);padding:10px;border-radius:8px;
+             color:white;font-family:Arial;font-size:12px;">
+            <b>Hotspot Intensity</b><br>
+            🔵 Low &nbsp;&nbsp; 🟢 Medium<br>🟡 High &nbsp; 🔴 Critical
+        </div>
+        
+    
+            <div class="folium-map" id="map_d60df2874cdb38104d7e6baa7befa3d2" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d60df2874cdb38104d7e6baa7befa3d2 = L.map(
+                "map_d60df2874cdb38104d7e6baa7befa3d2",
+                {
+                    center: [12.9716, 77.5946],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_db41ee17895ba3c354cfd5ca7fab8bb8 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_db41ee17895ba3c354cfd5ca7fab8bb8.addTo(map_d60df2874cdb38104d7e6baa7befa3d2);
+        
+    
+            var heat_map_237eaf1295c79f4c5cbf957eafc0d9d7 = L.heatLayer(
+                [[12.916829321869814, 77.62401896767285, 1.0], [13.007065350674068, 77.69509631084074, 1.0], [12.969780872588766, 77.7509856477339, 1.0], [12.978943495377788, 77.64121359184959, 0.5], [12.97066016560774, 77.75076084317976, 0.5], [12.935636648395699, 77.62359287435181, 1.0], [13.00732502215081, 77.69529318979974, 1.0], [12.958711683566424, 77.6978163037789, 0.5], [12.934313155142833, 77.6235444321034, 1.0], [12.840999542216876, 77.66720924047064, 1.0], [12.934470063083017, 77.62499560442956, 0.5], [13.04533887056752, 77.59647334694783, 1.0], [13.044377599327476, 77.59712748340954, 0.5], [12.84069518527953, 77.66635645209409, 1.0], [13.006647964215952, 77.69565306308508, 1.0], [12.84077836889755, 77.66714023801518, 1.0], [12.839828006080676, 77.66604204913904, 1.0], [12.969389981761937, 77.74976115220156, 1.0], [12.935419117223155, 77.6250193578083, 0.7], [12.840593669564406, 77.6674642414319, 1.0], [12.977669722723235, 77.64070248739353, 0.7], [12.935470637565706, 77.6249559165499, 0.7], [12.841042546681635, 77.66734362427418, 0.7], [12.918438603504674, 77.62415655495333, 0.7], [12.969524999368643, 77.75068554235588, 0.7], [13.00644086899157, 77.69581815163282, 1.0], [13.045514386976972, 77.59727154170791, 0.7], [12.917095586952906, 77.62382070404459, 0.7], [13.044557957291879, 77.59695904084177, 0.7], [12.97895289766943, 77.64167558354576, 0.7], [12.840322858820187, 77.66624185650309, 0.7], [12.917701265931207, 77.62266431545332, 1.0], [12.97043241537493, 77.75021065498298, 0.7], [12.978287204520266, 77.64077715282474, 0.7], [12.917965278813623, 77.62375578782145, 0.7], [12.84044612572288, 77.66675818568382, 0.7], [12.917543544249437, 77.62363126218689, 1.0], [12.840617849496056, 77.66623746355687, 0.7], [12.969834964417322, 77.75026446738521, 0.7], [12.958762585579741, 77.69678383842226, 1.0], [12.977532401906005, 77.64152703676571, 0.7], [12.979118250670604, 77.64010869717687, 1.0], [12.96917441990305, 77.75031692124243, 0.7], [12.977837097848477, 77.64043277827233, 0.7], [12.977807178278864, 77.6412529452889, 1.0]],
+                {
+  "minOpacity": 0.3,
+  "maxZoom": 18,
+  "radius": 25,
+  "blur": 20,
+  "gradient": {
+  0.2: "blue",
+  0.4: "cyan",
+  0.6: "lime",
+  0.8: "yellow",
+  1.0: "red",
+},
+}
+            );
+        
+    
+            heat_map_237eaf1295c79f4c5cbf957eafc0d9d7.addTo(map_d60df2874cdb38104d7e6baa7befa3d2);
+        
+    
+            var circle_marker_e38a50652a9a0593462d31db07492d7c = L.circleMarker(
+                [12.9176, 77.6234],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_d60df2874cdb38104d7e6baa7befa3d2);
+        
+    
+        var popup_98f66202dd055bf3e5774daf95c912d3 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_c941aee95007184633eb99011596fdf9 = $(`<div id="html_c941aee95007184633eb99011596fdf9" style="width: 100.0%; height: 100.0%;"><b>Silk Board</b><br>Violations: 6<br>Top type: Wrong-Side Driving</div>`)[0];
+                popup_98f66202dd055bf3e5774daf95c912d3.setContent(html_c941aee95007184633eb99011596fdf9);
+            
+        
+
+        circle_marker_e38a50652a9a0593462d31db07492d7c.bindPopup(popup_98f66202dd055bf3e5774daf95c912d3)
+        ;
+
+        
+    
+    
+            circle_marker_e38a50652a9a0593462d31db07492d7c.bindTooltip(
+                `<div>
+                     Silk Board: 6 violations
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_baf2450a02593aa402faf08731b19fce = L.circleMarker(
+                [13.0067, 77.6952],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_d60df2874cdb38104d7e6baa7befa3d2);
+        
+    
+        var popup_1e70ce3f620b0ac4e671375445983a97 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_43baf382ab40742b68debb8a7224a80e = $(`<div id="html_43baf382ab40742b68debb8a7224a80e" style="width: 100.0%; height: 100.0%;"><b>KR Puram</b><br>Violations: 4<br>Top type: Red-Light Violation</div>`)[0];
+                popup_1e70ce3f620b0ac4e671375445983a97.setContent(html_43baf382ab40742b68debb8a7224a80e);
+            
+        
+
+        circle_marker_baf2450a02593aa402faf08731b19fce.bindPopup(popup_1e70ce3f620b0ac4e671375445983a97)
+        ;
+
+        
+    
+    
+            circle_marker_baf2450a02593aa402faf08731b19fce.bindTooltip(
+                `<div>
+                     KR Puram: 4 violations
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7f80216e3e136e87aa98c2b576c62d90 = L.circleMarker(
+                [13.045, 77.5972],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_d60df2874cdb38104d7e6baa7befa3d2);
+        
+    
+        var popup_ed33461803b4b27f2488a5696ff98d80 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_59eb6c6f14d928db6fb04c2168b3e876 = $(`<div id="html_59eb6c6f14d928db6fb04c2168b3e876" style="width: 100.0%; height: 100.0%;"><b>Hebbal</b><br>Violations: 4<br>Top type: Helmet Non-Compliance</div>`)[0];
+                popup_ed33461803b4b27f2488a5696ff98d80.setContent(html_59eb6c6f14d928db6fb04c2168b3e876);
+            
+        
+
+        circle_marker_7f80216e3e136e87aa98c2b576c62d90.bindPopup(popup_ed33461803b4b27f2488a5696ff98d80)
+        ;
+
+        
+    
+    
+            circle_marker_7f80216e3e136e87aa98c2b576c62d90.bindTooltip(
+                `<div>
+                     Hebbal: 4 violations
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f9f29313800d3fa691454f00043398db = L.circleMarker(
+                [12.9698, 77.75],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_d60df2874cdb38104d7e6baa7befa3d2);
+        
+    
+        var popup_c4d2b7d719741cdfdbf5cb0137827c75 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_38aff1904affc50dfc179ea517b43276 = $(`<div id="html_38aff1904affc50dfc179ea517b43276" style="width: 100.0%; height: 100.0%;"><b>Whitefield</b><br>Violations: 7<br>Top type: Helmet Non-Compliance</div>`)[0];
+                popup_c4d2b7d719741cdfdbf5cb0137827c75.setContent(html_38aff1904affc50dfc179ea517b43276);
+            
+        
+
+        circle_marker_f9f29313800d3fa691454f00043398db.bindPopup(popup_c4d2b7d719741cdfdbf5cb0137827c75)
+        ;
+
+        
+    
+    
+            circle_marker_f9f29313800d3fa691454f00043398db.bindTooltip(
+                `<div>
+                     Whitefield: 7 violations
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_80bd37506ffe668f1f21cfa455ed946a = L.circleMarker(
+                [12.959, 77.6974],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_d60df2874cdb38104d7e6baa7befa3d2);
+        
+    
+        var popup_539b375c0ec70875d52efead5606e985 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_a2cfac2640a9b9314fe05d64e30fd05f = $(`<div id="html_a2cfac2640a9b9314fe05d64e30fd05f" style="width: 100.0%; height: 100.0%;"><b>Marathahalli</b><br>Violations: 2<br>Top type: Triple Riding (3 persons)</div>`)[0];
+                popup_539b375c0ec70875d52efead5606e985.setContent(html_a2cfac2640a9b9314fe05d64e30fd05f);
+            
+        
+
+        circle_marker_80bd37506ffe668f1f21cfa455ed946a.bindPopup(popup_539b375c0ec70875d52efead5606e985)
+        ;
+
+        
+    
+    
+            circle_marker_80bd37506ffe668f1f21cfa455ed946a.bindTooltip(
+                `<div>
+                     Marathahalli: 2 violations
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_56f67e89c05c77674afdbbf458c7cd6c = L.circleMarker(
+                [12.8406, 77.6669],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_d60df2874cdb38104d7e6baa7befa3d2);
+        
+    
+        var popup_22f0e0a27b6092a7d51a1f7814fe6424 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_0d0b29a2088663029f46e019aeef83a7 = $(`<div id="html_0d0b29a2088663029f46e019aeef83a7" style="width: 100.0%; height: 100.0%;"><b>Electronic City</b><br>Violations: 9<br>Top type: Red-Light Violation</div>`)[0];
+                popup_22f0e0a27b6092a7d51a1f7814fe6424.setContent(html_0d0b29a2088663029f46e019aeef83a7);
+            
+        
+
+        circle_marker_56f67e89c05c77674afdbbf458c7cd6c.bindPopup(popup_22f0e0a27b6092a7d51a1f7814fe6424)
+        ;
+
+        
+    
+    
+            circle_marker_56f67e89c05c77674afdbbf458c7cd6c.bindTooltip(
+                `<div>
+                     Electronic City: 9 violations
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_315c63cb581340186c3028d9021661c2 = L.circleMarker(
+                [12.9352, 77.6245],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_d60df2874cdb38104d7e6baa7befa3d2);
+        
+    
+        var popup_cbabf2b8108e1ed7ad4ae5a775594fef = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_1f3ce66debac627142d1bf5941482bb1 = $(`<div id="html_1f3ce66debac627142d1bf5941482bb1" style="width: 100.0%; height: 100.0%;"><b>Koramangala</b><br>Violations: 5<br>Top type: Red-Light Violation</div>`)[0];
+                popup_cbabf2b8108e1ed7ad4ae5a775594fef.setContent(html_1f3ce66debac627142d1bf5941482bb1);
+            
+        
+
+        circle_marker_315c63cb581340186c3028d9021661c2.bindPopup(popup_cbabf2b8108e1ed7ad4ae5a775594fef)
+        ;
+
+        
+    
+    
+            circle_marker_315c63cb581340186c3028d9021661c2.bindTooltip(
+                `<div>
+                     Koramangala: 5 violations
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_df921ebd51b6cd332e07ec08c5cb5824 = L.circleMarker(
+                [12.9784, 77.6408],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_d60df2874cdb38104d7e6baa7befa3d2);
+        
+    
+        var popup_abf2f99c77620644b6927c0ab1669530 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_997af8f54d6d3678b46e8542938a3ff0 = $(`<div id="html_997af8f54d6d3678b46e8542938a3ff0" style="width: 100.0%; height: 100.0%;"><b>Indiranagar</b><br>Violations: 8<br>Top type: Helmet Non-Compliance</div>`)[0];
+                popup_abf2f99c77620644b6927c0ab1669530.setContent(html_997af8f54d6d3678b46e8542938a3ff0);
+            
+        
+
+        circle_marker_df921ebd51b6cd332e07ec08c5cb5824.bindPopup(popup_abf2f99c77620644b6927c0ab1669530)
+        ;
+
+        
+    
+    
+            circle_marker_df921ebd51b6cd332e07ec08c5cb5824.bindTooltip(
+                `<div>
+                     Indiranagar: 8 violations
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

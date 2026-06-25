@@ -1,0 +1,22 @@
+============================================================
+  AEROFLOW VIOLATION AI — SUMMARY REPORT
+  Generated : 2026-06-23 16:02:36
+  Location  : ITO Crossing, Delhi
+============================================================
+
+  Total violations logged : 45
+  Total records in DB     : 45
+
+  BREAKDOWN BY VIOLATION TYPE:
+    Helmet Non-Compliance                 20  (44.4%)
+    Red-Light Violation                   15  (33.3%)
+    Wrong-Side Driving                     5  (11.1%)
+    Triple Riding                          5  (11.1%)
+
+  BREAKDOWN BY VEHICLE CLASS:
+    motorcycle             38
+    car                     7
+
+  Date range : 2026-06-21 → 2026-06-23
+
+============================================================
