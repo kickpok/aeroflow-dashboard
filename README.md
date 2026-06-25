@@ -12,3 +12,4 @@ streamlit run dashboard.py
 ## Data Update
 
 Push `lane_logs.csv` and `evidence/violations.csv` from your local prototype run to update the dashboard.
+https://aeroflow-dashboard.streamlit.app/
